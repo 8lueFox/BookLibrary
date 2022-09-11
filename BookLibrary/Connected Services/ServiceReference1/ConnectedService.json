@@ -1,0 +1,20 @@
+{
+  "ExtendedData": {
+    "inputs": [
+      "../../BookService.wsdl"
+    ],
+    "collectionTypes": [
+      "System.Array",
+      "System.Collections.Generic.Dictionary`2"
+    ],
+    "messageContract": true,
+    "namespaceMappings": [
+      "*, ServiceReference1"
+    ],
+    "references": [
+      "SoapCore, {SoapCore, 1.1.0.31}"
+    ],
+    "targetFramework": "net6.0",
+    "typeReuseMode": "Specified"
+  }
+}
