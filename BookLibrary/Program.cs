@@ -1,3 +1,4 @@
+using BookLibrary;
 using BookLibrary.Services;
 using ServiceReference1;
 using SoapCore;
@@ -13,7 +14,7 @@ app.UseRouting();
 
 app.UseEndpoints(endpoints =>
 {
-    endpoints.UseSoapEndpoint<BookService>("/BookService.svc", new SoapEncoderOptions(), SoapSerializer.XmlSerializer);
+    endpoints.UseSoapServiceWithDeniedGET<BookService>();
 });
 
 app.Run();
