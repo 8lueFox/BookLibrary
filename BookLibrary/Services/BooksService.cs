@@ -1,10 +1,18 @@
-﻿using ServiceReference1;
+﻿using BookLibrary.Queries;
+using MediatR;
+using ServiceReference1;
 
 namespace BookLibrary.Services;
 
 public class BooksService : BookService
 {
-    public Task<AddBookResponse> AddBookAsync(AddBookRequest request)
+    private readonly IMediator _mediator;
+    public BooksService(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
+
+    public async Task<AddBookResponse> AddBookAsync(AddBookRequest request)
     {
         throw new NotImplementedException();
     }
@@ -14,8 +22,12 @@ public class BooksService : BookService
         throw new NotImplementedException();
     }
 
-    public Task<GetBookResponse> GetBookAsync(GetBookRequest request)
+    public async Task<GetBookResponse> GetBookAsync(GetBookRequest request)
     {
-        throw new NotImplementedException();
+        var query = new GetBookQuery(request);
+
+        var result = await _mediator.Send(query);
+
+        return result;
     }
 }
